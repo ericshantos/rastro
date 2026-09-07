@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "pico/stdlib.h"
 #include "Engine.hpp"
 #include "AnalogSensor.hpp"
@@ -5,6 +6,7 @@
 
 
 int main() {
+    stdio_init_all();
 
     AnalogSensor sensor_left(Pins::Analog::LEFT, 0);
     AnalogSensor sensor_right(Pins::Analog::RIGHT, 1);
@@ -20,35 +22,11 @@ int main() {
     );
 
     while (true) {
-        
-        float sR = sensor_left.read_normalized();
         float sL = sensor_right.read_normalized();
+        float sR = sensor_left.read_normalized();
 
-        if (sL && sR) {
-            left.stop();
-            right.stop();
-        } 
+        printf("Sensor left: %f| Sensor right: %f", sL, sR);
 
-        else if (!sL && sR) {
-            left.reverse();
-            right.forward();
-        }
-
-        else if (sL && !sR) {
-            left.forward();
-            right.reverse();
-        }
-
-        else if (!sL && !sR) {
-            left.reverse();
-            right.reverse();
-
-            sleep_ms(1000);
-        }
-
-        else {
-            left.forward();
-            right.forward();
-        }
+        sleep_ms(500);
     }
 }
