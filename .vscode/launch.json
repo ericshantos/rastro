@@ -16,7 +16,11 @@
                 "interface/cmsis-dap.cfg",
                 "target/${command:raspberry-pi-pico.getTarget}.cfg"
             ],
+<<<<<<< HEAD
             "svdFile": "${userHome}/.pico-sdk/sdk/2.3.0/src/${command:raspberry-pi-pico.getChip}/hardware_regs/${command:raspberry-pi-pico.getChipUppercase}.svd",
+=======
+            "svdFile": "${userHome}/.pico-sdk/sdk/2.3.1/src/${command:raspberry-pi-pico.getChip}/hardware_regs/${command:raspberry-pi-pico.getChipUppercase}.svd",
+>>>>>>> 28bf920 (feat: add new features in main)
             "runToEntryPoint": "main",
             // Fix for no_flash binaries, where monitor reset halt doesn't do what is expected
             // Also works fine for flash binaries
@@ -39,7 +43,11 @@
             "gdbPath": "${command:raspberry-pi-pico.getGDBPath}",
             "debuggerArgs": ["-ex", "set debug-file-directory /debug"],
             "device": "${command:raspberry-pi-pico.getChipUppercase}",
+<<<<<<< HEAD
             "svdFile": "${userHome}/.pico-sdk/sdk/2.3.0/src/${command:raspberry-pi-pico.getChip}/hardware_regs/${command:raspberry-pi-pico.getChipUppercase}.svd",
+=======
+            "svdFile": "${userHome}/.pico-sdk/sdk/2.3.1/src/${command:raspberry-pi-pico.getChip}/hardware_regs/${command:raspberry-pi-pico.getChipUppercase}.svd",
+>>>>>>> 28bf920 (feat: add new features in main)
             "runToEntryPoint": "main",
             // Fix for no_flash binaries, where monitor reset halt doesn't do what is expected
             // Also works fine for flash binaries
@@ -47,6 +55,10 @@
                 "monitor reset init",
                 "load \"${command:raspberry-pi-pico.launchTargetPath}\""
             ]
+<<<<<<< HEAD
         },
+=======
+        }
+>>>>>>> 28bf920 (feat: add new features in main)
     ]
 }

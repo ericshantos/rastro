@@ -4,11 +4,19 @@
             "name": "Pico",
             "includePath": [
                 "${workspaceFolder}/**",
+<<<<<<< HEAD
                 "${userHome}/.pico-sdk/sdk/2.3.0/**"
             ],
             "forcedInclude": [
                 "${workspaceFolder}/build/generated/pico_base/pico/config_autogen.h",
                 "${userHome}/.pico-sdk/sdk/2.3.0/src/common/pico_base_headers/include/pico.h"
+=======
+                "${userHome}/.pico-sdk/sdk/2.3.1/**"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/build/generated/pico_base/pico/config_autogen.h",
+                "${userHome}/.pico-sdk/sdk/2.3.1/src/common/pico_base_headers/include/pico.h"
+>>>>>>> 28bf920 (feat: add new features in main)
             ],
             "defines": [],
             "compilerPath": "${userHome}/.pico-sdk/toolchain/15_2_Rel1/bin/arm-none-eabi-gcc",

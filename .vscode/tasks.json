@@ -20,7 +20,11 @@
         {
             "label": "Run Project",
             "type": "process",
+<<<<<<< HEAD
             "command": "${env:HOME}/.pico-sdk/picotool/2.3.0/picotool/picotool",
+=======
+            "command": "${env:HOME}/.pico-sdk/picotool/2.3.1/picotool/picotool",
+>>>>>>> 28bf920 (feat: add new features in main)
             "args": [
                 "load",
                 "${command:raspberry-pi-pico.launchTargetPath}",
@@ -32,7 +36,11 @@
             },
             "problemMatcher": [],
             "windows": {
+<<<<<<< HEAD
                 "command": "${env:USERPROFILE}/.pico-sdk/picotool/2.3.0/picotool/picotool.exe"
+=======
+                "command": "${env:USERPROFILE}/.pico-sdk/picotool/2.3.1/picotool/picotool.exe"
+>>>>>>> 28bf920 (feat: add new features in main)
             }
         },
         {
@@ -51,7 +59,11 @@
             ],
             "problemMatcher": [],
             "windows": {
+<<<<<<< HEAD
                 "command": "${env:USERPROFILE}/.pico-sdk/openocd/0.12.0+dev/openocd.exe",
+=======
+                "command": "${env:USERPROFILE}/.pico-sdk/openocd/0.12.0+dev/openocd.exe"
+>>>>>>> 28bf920 (feat: add new features in main)
             }
         },
         {
@@ -70,7 +82,11 @@
             ],
             "problemMatcher": [],
             "windows": {
+<<<<<<< HEAD
                 "command": "${env:USERPROFILE}/.pico-sdk/openocd/0.12.0+dev/openocd.exe",
+=======
+                "command": "${env:USERPROFILE}/.pico-sdk/openocd/0.12.0+dev/openocd.exe"
+>>>>>>> 28bf920 (feat: add new features in main)
             }
         },
         {
@@ -95,7 +111,11 @@
             ],
             "problemMatcher": [],
             "windows": {
+<<<<<<< HEAD
                 "command": "${env:USERPROFILE}/.pico-sdk/openocd/0.12.0+dev/openocd.exe",
+=======
+                "command": "${env:USERPROFILE}/.pico-sdk/openocd/0.12.0+dev/openocd.exe"
+>>>>>>> 28bf920 (feat: add new features in main)
             }
         }
     ]
