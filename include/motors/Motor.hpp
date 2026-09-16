@@ -20,8 +20,8 @@ class Motor {
     public:
         Motor(uint pin_a, uint pin_b);
 
-        void forward(uint8_t percentage);
-        void backward(uint8_t percentage);
+        void forward(uint16_t pwm);
+        void backward(uint16_t pwm);
         void stop();
 };
 

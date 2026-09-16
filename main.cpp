@@ -9,11 +9,16 @@
 #include <stdio.h>
 #include <cstdint>
 
-
 #include "motors/Motor.hpp"
+
 #include "sensors/AnalogSensor.hpp"
+#include "LinePosition.hpp"
+
 #include "controls/SteeringWheel.hpp"
 #include "controls/Button.hpp"
+#include "controls/PID.hpp"
+#include "controls/TimeStep.hpp"
+#include "controls/DriveController.hpp"
 
 #include "configs/SensorConfig.hpp"
 #include "configs/MotorConfig.hpp"
@@ -40,7 +45,18 @@ int main()
         Pins::Motor::RIGHT_B
     );
 
-    SteeringWheel steering(motor_left, motor_right);
+    DriveController drive(
+        motor_left,
+        motor_right,
+        MotorConfig::BASE_SPEED,
+        MotorConfig::MAX_SPEED
+    );
+
+    PID pid(2.0f, 0.1f, 0.0f);
+
+    TimeStep timer;
+
+    LinePosition position_estimator;
 
     Button btn(Pins::Button::START);
 
@@ -49,46 +65,16 @@ int main()
     }
 
     while (true) {
-        
         uint16_t left_reading = sensor_left.read();
         uint16_t right_reading = sensor_right.read();
 
-        bool left_detected = sensor_left.detected(
-            SensorConfig::LEFT_THRESHOLD
-        );
+        float error = line_estimator(left_reading, left_reading);
 
-        bool right_detected = sensor_right.detected(
-            SensorConfig::RIGHT_THRESHOLD
-        );
+        float dt = timer.elapsed()
 
-        if (left_detected && right_detected) {
-            steering.stop();
-        }
+        float correction = pid(error, dt);
 
-        else if (!left_detected && right_detected) {
-            steering.turn_right(
-                MotorConfig::BASE_PERCENTACE
-            );
-        }
-
-        else if (left_detected && !right_detected) {
-            steering.turn_left(
-                MotorConfig::BASE_PERCENTACE
-            );
-        }
-
-        else {
-            steering.forward(
-                MotorConfig::BASE_PERCENTACE
-            );
-        }
-
-        printf("L = %u -> (%d) | R = %u -> (%d)",
-            left_reading,
-            left_detected,
-            right_reading,
-            right_detected    
-        );
+        drive.drive(correction);
     }
 
     return 0;

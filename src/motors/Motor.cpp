@@ -48,8 +48,8 @@ void Motor::set_pwm(uint pin, uint16_t speed)
     pwm_set_gpio_level(pin, speed);
 }
 
-void Motor::forward(uint8_t percentage) {
-    uint16_t pwm = percentage_to_pwm(percentage);
+void Motor::forward(uint16_t pwm) {
+    // uint16_t pwm = percentage_to_pwm(percentage);
 
     set_pwm(_pin_a, 0);
     set_pwm(_pin_b, pwm);
@@ -57,8 +57,8 @@ void Motor::forward(uint8_t percentage) {
     _speed = pwm;
 };
 
-void Motor::backward(uint8_t percentage) {
-    uint16_t pwm = percentage_to_pwm(percentage);
+void Motor::backward(uint16_t pwm) {
+    // uint16_t pwm = percentage_to_pwm(percentage);
 
     set_pwm(_pin_b, 0);
     set_pwm(_pin_a, pwm);
