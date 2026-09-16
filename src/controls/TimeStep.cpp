@@ -12,7 +12,7 @@ float TimeStep::elapsed()
     float dt = absolute_time_diff_us(
         _previous_time,
         current_time
-    ) / 1000000.0f;
+    ) / 1'000'000.0f;
 
     _previous_time = current_time;
 
