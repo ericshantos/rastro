@@ -9,4 +9,5 @@ namespace SensorConfig {
 
     constexpr uint16_t RIGHT_THRESHOLD = 2500;
 
+    constexpr uint MEASUREMENTS = 5;    
 }

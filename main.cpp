@@ -12,7 +12,7 @@
 #include "motors/Motor.hpp"
 
 #include "sensors/AnalogSensor.hpp"
-#include "LinePosition.hpp"
+#include "sensors/LinePosition.hpp"
 
 #include "controls/SteeringWheel.hpp"
 #include "controls/Button.hpp"
@@ -56,7 +56,7 @@ int main()
 
     TimeStep timer;
 
-    LinePosition position_estimator;
+    LinePosition line_estimator;
 
     Button btn(Pins::Button::START);
 
@@ -70,7 +70,7 @@ int main()
 
         float error = line_estimator(left_reading, left_reading);
 
-        float dt = timer.elapsed()
+        float dt = timer.elapsed();
 
         float correction = pid(error, dt);
 

@@ -13,7 +13,7 @@ public:
 
     void init();
 
-    uint16_t read();
+    uint16_t read(bool use_mean = false);
 
     bool detected(uint threshold);
 };
