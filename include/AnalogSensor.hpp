@@ -15,7 +15,7 @@ private:
 public:
     AnalogSensor(uint gpio, uint adc_channel);
 
-    uint16_t read();
+    uint16_t read(bool mean = false);
     float read_voltage();
     float read_normalized();
 };
